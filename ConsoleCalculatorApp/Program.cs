@@ -11,6 +11,8 @@ class Program
         bool systemExit = false;
 
         List<string> history = new List<string>();
+        int calculationCount = 0;
+
 
         while (!systemExit)
         {
@@ -37,7 +39,8 @@ class Program
             Console.WriteLine("--------------------------------");
             Console.WriteLine("7. Power");
             Console.WriteLine("8. Square Root");
-            Console.WriteLine("9. HISTORY");
+            Console.WriteLine("9. Percentage");
+            Console.WriteLine("10. HISTORY");
 
 
             Console.WriteLine(" ");
@@ -73,6 +76,8 @@ class Program
                 Console.WriteLine("------Thank you for using-------");
                 Console.WriteLine(" ");
                 Console.WriteLine("-----C# CONSOLE CALCULATOR------");
+                Console.WriteLine(" ");
+                Console.WriteLine($"You completed {calculationCount} calculations.");
                 Console.WriteLine(" ");
                 Console.WriteLine("================================");
                 continue;
@@ -130,43 +135,57 @@ class Program
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} + {number2} = {result}");
                 history.Add($"{number1} + {number2} = {result}");
+                calculationCount++;
             } else if (option == 2){
                 decimal result = subtract(number1, number2);
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} - {number2} = {result}");
                 history.Add($"{number1} - {number2} = {result}");
+                calculationCount++;
             } else if (option == 3)
             {
                 decimal result = multiply(number1, number2);
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} x {number2} = {result}");
                 history.Add($"{number1} x {number2} = {result}");
+                calculationCount++;
             } else if (option == 4)
             {
                 decimal result = divide(number1, number2);
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} / {number2} = {result}");
                 history.Add($"{number1} / {number2} = {result}");
+                calculationCount++;
             } else if (option == 5)
             {
                 decimal result = modulus(number1, number2);
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} % {number2} = {result}");
                 history.Add($"{number1} % {number2} = {result}");
+                calculationCount++;
             } else if (option == 7)
             {
                 decimal result = power(number1, number2);
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} to the power of {number2} = {result}");
                 history.Add($"{number1} to the power of {number2} = {result}");
+                calculationCount++;
             } else if (option == 8)
             {
                 decimal result = root(number1, number2);
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"Square root of {number1} = {result}");
                 history.Add($"Square root of {number1} = {result}");
+                calculationCount++;
+            } else if (option == 9)
+            {
+                decimal result = percentage(number1, number2);
+                Console.WriteLine("Answer:");
+                Console.WriteLine($"{number2}% of {number1} is {result}");
+                history.Add($"{number2}% of {number1} is {result}");
+                calculationCount++;
             }
-            else if (option == 9)
+            else if (option == 10)
             {
                 Console.WriteLine("Calculation history:");
                 foreach (string calculation in history)
@@ -236,6 +255,13 @@ class Program
         {
             double root = Math.Sqrt((double)num1);
             return (decimal)root;
+        }
+
+        //Percentage
+        decimal percentage(decimal num1, decimal num2)
+        {
+            double percentage = ((double)num1 / 100) * (double)num2;
+            return (decimal)percentage;
         }
 
     }
