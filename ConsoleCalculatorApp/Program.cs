@@ -83,6 +83,22 @@ class Program
                 continue;
             }
 
+
+            //check for history
+            if (option == 10)
+            {
+                Console.WriteLine("Calculation history:");
+                foreach (string calculation in history)
+                {
+                    Console.WriteLine(calculation);
+                }
+                Console.WriteLine(" ");
+                Console.WriteLine("Press any key to return to the menu...");
+                Console.ReadKey();
+                continue;
+            }
+
+
             Console.WriteLine(" ");
 
             //User input - number 1
@@ -104,22 +120,25 @@ class Program
                 }
             }
 
-            //User input - number 2
-            Console.WriteLine("Enter second number");
-            string? inputNumber2 = Console.ReadLine();
-            validInput = false;
-
-            while (!validInput)
+            //User input - number 2 (only needed if NOT square root)
+            if (option != 8)
             {
-                if (decimal.TryParse(inputNumber2, out number2))
+                Console.WriteLine("Enter second number");
+                string? inputNumber2 = Console.ReadLine();
+                validInput = false;
+
+                while (!validInput)
                 {
-                    validInput = true;
-                }
-                else
-                {
-                    Console.WriteLine("Error, try again!");
-                    inputNumber2 = Console.ReadLine();
-                    validInput = false;
+                    if (decimal.TryParse(inputNumber2, out number2))
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error, try again!");
+                        inputNumber2 = Console.ReadLine();
+                        validInput = false;
+                    }
                 }
             }
 
