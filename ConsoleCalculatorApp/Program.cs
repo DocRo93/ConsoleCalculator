@@ -31,8 +31,14 @@ class Program
             Console.WriteLine("4. Division");
             Console.WriteLine("5. Modulus");
             Console.WriteLine("6. Exit");
+            Console.WriteLine("================================");
+            Console.WriteLine("Extra Functions:");
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("7. Power");
+            Console.WriteLine("8. Square Root");
 
-
+            Console.WriteLine(" ");
+            Console.WriteLine("--------------------------------");
             //Input instructions
             Console.WriteLine(" ");
 
@@ -134,6 +140,14 @@ class Program
             {
                 Console.WriteLine("Answer:");
                 Console.WriteLine($"{number1} % {number2} = {modulus(number1, number2)}");
+            } else if (option == 7)
+            {
+                Console.WriteLine("Answer:");
+                Console.WriteLine($"{number1} to the power of {number2} = {power(number1, number2)}");
+            } else if (option == 8)
+            {
+                Console.WriteLine("Answer:");
+                Console.WriteLine($"Square root of {number1} = {root(number1, number2)}");
             }
             else if (option == 6) {
                 systemExit = true;
@@ -183,6 +197,20 @@ class Program
         decimal modulus(decimal num1, decimal num2)
         {
             return num1 % num2;
+        }
+
+        //Power
+        decimal power(decimal num1, decimal num2)
+        {
+            double power = Math.Pow((double)num1, (double)num2);
+            return (decimal)power;
+        }
+
+        //Square Root
+        decimal root(decimal num1, decimal num2)
+        {
+            double root = Math.Sqrt((double)num1);
+            return (decimal)root;
         }
 
     }
