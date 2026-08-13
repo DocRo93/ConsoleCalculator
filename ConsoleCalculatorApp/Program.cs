@@ -10,6 +10,7 @@ class Program
         decimal number2 = 0;
         bool systemExit = false;
 
+        List<string> history = new List<string>();
 
         while (!systemExit)
         {
@@ -36,6 +37,8 @@ class Program
             Console.WriteLine("--------------------------------");
             Console.WriteLine("7. Power");
             Console.WriteLine("8. Square Root");
+            Console.WriteLine("9. HISTORY");
+
 
             Console.WriteLine(" ");
             Console.WriteLine("--------------------------------");
@@ -123,31 +126,53 @@ class Program
             //Operation selection
             if (option == 1)
             {
+                decimal result = add(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"{number1} + {number2} = {add(number1, number2)}");
+                Console.WriteLine($"{number1} + {number2} = {result}");
+                history.Add($"{number1} + {number2} = {result}");
             } else if (option == 2){
+                decimal result = subtract(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"{number1} - {number2} = {subtract(number1, number2)}");
+                Console.WriteLine($"{number1} - {number2} = {result}");
+                history.Add($"{number1} - {number2} = {result}");
             } else if (option == 3)
             {
+                decimal result = multiply(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"{number1} x {number2} = {multiply(number1, number2)}");
+                Console.WriteLine($"{number1} x {number2} = {result}");
+                history.Add($"{number1} x {number2} = {result}");
             } else if (option == 4)
             {
+                decimal result = divide(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"{number1} / {number2} = {divide(number1, number2)}");
+                Console.WriteLine($"{number1} / {number2} = {result}");
+                history.Add($"{number1} / {number2} = {result}");
             } else if (option == 5)
             {
+                decimal result = modulus(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"{number1} % {number2} = {modulus(number1, number2)}");
+                Console.WriteLine($"{number1} % {number2} = {result}");
+                history.Add($"{number1} % {number2} = {result}");
             } else if (option == 7)
             {
+                decimal result = power(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"{number1} to the power of {number2} = {power(number1, number2)}");
+                Console.WriteLine($"{number1} to the power of {number2} = {result}");
+                history.Add($"{number1} to the power of {number2} = {result}");
             } else if (option == 8)
             {
+                decimal result = root(number1, number2);
                 Console.WriteLine("Answer:");
-                Console.WriteLine($"Square root of {number1} = {root(number1, number2)}");
+                Console.WriteLine($"Square root of {number1} = {result}");
+                history.Add($"Square root of {number1} = {result}");
+            }
+            else if (option == 9)
+            {
+                Console.WriteLine("Calculation history:");
+                foreach (string calculation in history)
+                {
+                    Console.WriteLine(calculation);
+                }
             }
             else if (option == 6) {
                 systemExit = true;
